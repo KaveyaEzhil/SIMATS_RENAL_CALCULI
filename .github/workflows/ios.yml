@@ -12,8 +12,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
-    name: Build & Verify iOS App
+  build-and-test:
+    name: Build & Test iOS App
     runs-on: macos-14
 
     steps:
@@ -28,6 +28,16 @@ jobs:
       - name: Display Xcode version
         run: |
           xcodebuild -version
+
+      - name: Run Unit Tests
+        run: |
+          swiftc -sdk $(xcrun --show-sdk-path) \
+                 RenalCalculi/ServiceAPI.swift \
+                 RenalCalculi/SharedModels.swift \
+                 Tests/RenalCalculiTests.swift \
+                 -o Tests/test_runner
+          Tests/test_runner
+          rm -f Tests/test_runner
 
       - name: Cache CocoaPods
         uses: actions/cache@v4
