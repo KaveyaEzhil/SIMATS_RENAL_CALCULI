@@ -1,0 +1,22 @@
+# Xcode
+## User settings
+xcuserdata/
+*.xcuserdatad/
+*.xcuserstate
+
+## Build generated
+build/
+DerivedData/
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+## CocoaPods
+Pods/
+
+## OS generated
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
